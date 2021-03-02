@@ -1,0 +1,108 @@
+.service_wrapper {
+  margin: 2rem 0;
+  overflow: hidden;
+}
+
+.title {
+  margin: 0.5rem;
+  padding: 0.5rem;
+  text-transform: uppercase;
+  color: var(--lighter-black);
+  font-weight: 600;
+}
+
+.service_header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.service_accordion {
+  /* padding: 1rem; */
+  background-color: #eeee;
+  width: 100%;
+  overflow-y: hidden;
+  transition: var(--transition);
+  margin-top: -18px;
+  color: #656565;
+  display: flex;
+  justify-content: space-between;
+}
+
+.service_accordion h4 {
+  font-weight: 600;
+}
+
+.acordion_icon {
+  width: 50px;
+  /* position: absolute; */
+  /* right: 0;
+  top: 0;
+  bottom: 0; */
+  background-color: #656565;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.acordion_icon_del {
+  background-color: var(--danger-color-light);
+}
+
+.acordion_icon:hover {
+  background-color: var(--lighter-black);
+}
+
+.acordion_icon_del:hover {
+  background-color: var(--danger-color);
+}
+
+.acordion_icon svg {
+  fill: white;
+  font-size: 1.7rem;
+  color: white;
+}
+
+.docx_iframe {
+  width: 100%;
+  height: 0px;
+  transition: var(--transition);
+  border: none;
+  overflow: hidden;
+}
+
+.expand {
+  height: 65vh;
+}
+
+.arrow_down {
+  transform: rotate(90deg);
+}
+
+.service_title {
+  color: var(--primary-color);
+  font-size: 1.3rem;
+}
+
+.actions {
+  display: flex;
+}
+
+.header_actions {
+  display: flex;
+  align-items: center;
+}
+
+.servicetype {
+  margin-bottom: 1.5rem;
+}
+
+.title_done_edit {
+  background-color: transparent;
+  border: none;
+}
+
+/* .docx_iframe .ck-editor__top {
+  display: none !important;
+} */

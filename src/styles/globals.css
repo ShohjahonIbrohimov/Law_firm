@@ -1,0 +1,106 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --primary-color: #2b730d;
+  --primary-color-light: #4b902d;
+  --lighter-black: #2e2e2e;
+  --secondary-color: #ff5722;
+  --danger-color-light: #fb4e4e;
+  --danger-color: #e21515;
+  --transition: 0.3s all;
+}
+
+.prim_icon {
+  color: var(--primary-color-light);
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+.prim_icon:hover {
+  color: var(--primary-color);
+}
+
+.container {
+  width: 95%;
+  margin: auto;
+}
+
+.glb_btn {
+  background-color: var(--primary-color-light);
+  color: #fff;
+  padding: 0.8rem 1.5rem;
+  cursor: pointer;
+  transition: var(--transition);
+  border: none;
+  display: flex;
+  align-items: center;
+  height: 40px;
+}
+
+.glb_btn svg {
+  margin-left: 0.5rem;
+}
+
+.glb_btn.send_question_btn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: var(--secondary-color);
+}
+.glb_btn:hover {
+  background-color: var(--lighter-black);
+}
+
+.section_title_wrapper {
+  display: flex;
+  margin: 1rem 0;
+}
+
+.section_title_wrapper .glb_btn {
+  margin-left: 0.5rem;
+  padding: 0.5rem;
+}
+
+.section_title {
+  font-size: 1rem;
+  background-color: var(--primary-color);
+  padding: 0.5rem 1.5rem;
+  text-align: start;
+  display: inline-block;
+  /* margin: 1rem 0; */
+  color: white;
+}
+
+a:hover {
+  color: var(--primary-color);
+  text-decoration: underline;
+}
+
+@media (max-width: 560px) {
+  iframe {
+    width: 172% !important;
+    margin: auto;
+    margin-left: -31%;
+  }
+}
+
+.CK_editor .ck-editor__top {
+  display: none !important;
+}

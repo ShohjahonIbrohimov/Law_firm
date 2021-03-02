@@ -1,0 +1,21 @@
+.service_card {
+  padding: 1rem;
+  background-color: #eeeeee;
+  /* min-width: 275px; */
+  cursor: pointer;
+}
+
+.service_card:hover {
+  box-shadow: 1px 1px 6px 0 rgba(0, 0, 0, 0.335);
+}
+
+.title {
+  color: var(--lighter-black);
+  border-bottom: 1px solid var(--lighter-black);
+  padding-bottom: 0.5rem;
+}
+
+.service_types p {
+  font-size: 0.7rem;
+  margin-bottom: 0.5rem;
+}

@@ -1,0 +1,66 @@
+.content1 {
+  width: 68%;
+}
+
+.services {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(275px, 1fr));
+  gap: 10px;
+}
+
+.services_section {
+  margin: 1rem 0;
+}
+
+.ourstaff_section {
+  width: 100%;
+  margin: 1rem 0;
+  overflow: hidden;
+}
+
+.staff_wrapper {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.staff_about {
+  width: 70%;
+}
+
+.staff_img {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 150px;
+  width: 150px;
+}
+
+.home_contents_wrapper {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.news {
+  width: 30%;
+  min-width: 400px;
+}
+
+@media (max-width: 1300px) {
+  .content1,
+  .news {
+    flex: 1;
+    /* min-width: unset; */
+  }
+
+  .news {
+    min-width: 100%;
+  }
+}
+
+@media (max-width: 560px) {
+  .staff_about {
+    width: 100%;
+  }
+} ;

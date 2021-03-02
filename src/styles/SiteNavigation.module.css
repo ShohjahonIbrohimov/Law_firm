@@ -1,0 +1,16 @@
+.navigation {
+  background-color: var(--primary-color);
+  display: flex;
+  list-style-type: none;
+  margin-bottom: 2rem;
+}
+
+.navigation li {
+  padding: 1rem;
+  color: #fff;
+  cursor: pointer;
+}
+
+.navigation li:hover {
+  background-color: var(--lighter-black);
+}
