@@ -1,15 +1,15 @@
 import React, { useState, createContext } from "react";
 
-const ThemeContext = createContext("services");
+export const ServicesContext = createContext("services");
 
-const ServicesContext = ({ children }) => {
-  const [services, setservices] = useState();
+const ServicesContextProvider = ({ children }) => {
+  const [services, setservices] = useState([]);
 
   return (
-    <ThemeContext.Provider value={{ services }}>
+    <ServicesContext.Provider value={{ services, setservices }}>
       {children}
-    </ThemeContext.Provider>
+    </ServicesContext.Provider>
   );
 };
 
-export default ServicesContext;
+export default ServicesContextProvider;

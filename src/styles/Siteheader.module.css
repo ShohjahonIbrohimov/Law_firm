@@ -8,6 +8,8 @@
 
 .sitehead_contact {
   text-align: center;
+  display: flex;
+  align-items: center;
 }
 
 .phone {
@@ -56,6 +58,20 @@
 
 .icon_btn:hover {
   background: #ccc;
+}
+
+.social_media {
+  margin-right: 1rem;
+}
+
+.social_media i {
+  cursor: pointer;
+  margin: 0.25rem;
+  color: #656565;
+}
+
+.social_media i:hover {
+  color: var(--primary-color);
 }
 
 .logo {

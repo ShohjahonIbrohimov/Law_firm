@@ -1,0 +1,16 @@
+.login_form input {
+  margin-bottom: 0.7rem;
+  background: #f1f1f1;
+  border: none;
+  border-bottom: 2px solid #f1f1f1;
+  transition: var(--transition);
+}
+
+.login_form input:focus {
+  border-bottom: 2px solid var(--primary-color);
+}
+
+.login_form {
+  display: flex;
+  flex-direction: column;
+}

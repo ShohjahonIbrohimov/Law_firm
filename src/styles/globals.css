@@ -51,7 +51,9 @@ a {
   border: none;
   display: flex;
   align-items: center;
+  justify-content: center;
   height: 40px;
+  text-align: center;
 }
 
 .glb_btn svg {
@@ -103,4 +105,30 @@ a:hover {
 
 .CK_editor .ck-editor__top {
   display: none !important;
+}
+
+/* FORM */
+input,
+textarea {
+  padding: 0.8rem 0.5rem;
+  outline: none;
+  font-size: 1rem;
+  /* margin-bottom: 0.5rem; */
+}
+
+.modal_wrapper {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.424);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+.hide_modal {
+  display: none;
 }

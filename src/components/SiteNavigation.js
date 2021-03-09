@@ -1,20 +1,21 @@
-import React from 'react'
-import styles from "../styles/SiteNavigation.module.css"
+import React from "react";
+import styles from "../styles/SiteNavigation.module.css";
+import { Link } from "react-router-dom";
 
 const SiteNavigation = () => {
-    return (
-        <ul className={styles.navigation}>
-            <li>
-                <a href="">Biz haqimizda</a>
-            </li>
-            <li>
-                <a href="">Onlayn to'lov</a>
-            </li>
-            <li>
-                <a href="">Aloqa</a>
-            </li>
-        </ul>
-    )
-}
+  return (
+    <ul className={styles.navigation}>
+      <li>
+        <Link to='/about'>Biz haqimizda</Link>
+      </li>
+      <li>
+        <Link to=''>Onlayn to'lov</Link>
+      </li>
+      <li>
+        <Link to=''>Aloqa</Link>
+      </li>
+    </ul>
+  );
+};
 
-export default SiteNavigation
+export default SiteNavigation;

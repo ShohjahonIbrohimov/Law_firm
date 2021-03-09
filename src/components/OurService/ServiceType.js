@@ -1,16 +1,27 @@
 import React, { useState } from "react";
-import styles from "../styles/Service.module.css";
+import styles from "../../styles/Service.module.css";
 import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
-import services2 from "../assets/services.json";
 
-const ServiceType = ({ category, data, handleDelete, saveToDb }) => {
+const ServiceType = ({
+  category,
+  saveToDb,
+  handleUpdate,
+  handleDelete,
+  save,
+  setsave,
+}) => {
   const [expand, setexpand] = useState(false);
-  const [categoryName, setcategoryName] = useState(category.name);
-  const [save, setsave] = useState(true);
+  const [categoryTitle, setcategoryTitle] = useState(category.title);
+  const [categoryContent, setcategoryContent] = useState(category.content);
 
   const handleEdit = () => {
-    setsave(!save);
+    setsave(false);
+  };
+
+  const update = () => {
+    handleUpdate(categoryTitle, categoryContent, category.number);
+    setsave(true);
   };
 
   return (
@@ -20,10 +31,10 @@ const ServiceType = ({ category, data, handleDelete, saveToDb }) => {
           disabled={save}
           className={`${styles.title} ${save ? styles.title_done_edit : ""}`}
           type='text'
-          value={categoryName}
-          onChange={(e) => setcategoryName(e.target.valu)}
+          value={categoryTitle}
+          onChange={(e) => setcategoryTitle(e.target.value)}
+          style={{ fontSize: "0.8rem", width: "100%" }}
         />
-        {/* <h5 className={styles.title}>{category.name}</h5> */}
         <div className={styles.actions}>
           <div
             className={`${styles.acordion_icon_del} ${styles.acordion_icon}`}
@@ -36,8 +47,8 @@ const ServiceType = ({ category, data, handleDelete, saveToDb }) => {
             ></i>
           </div>
           <div
+            onClick={() => (save ? handleEdit() : update())}
             className={styles.acordion_icon}
-            onClick={handleEdit}
             style={{ margin: "0 0.3rem" }}
           >
             {save && (
@@ -68,23 +79,12 @@ const ServiceType = ({ category, data, handleDelete, saveToDb }) => {
         }`}
       >
         <CKEditor
-          // className={saveToDb ? "ck_editor" : ""}
           disabled={save}
           editor={ClassicEditor}
-          data={data}
-          onReady={(editor) => {
-            // You can store the "editor" and use when it is needed.
-            console.log("Editor is ready to use!", editor);
-          }}
+          data={categoryContent}
           onChange={(event, editor) => {
             const data = editor.getData();
-            console.log({ event, editor, data });
-          }}
-          onBlur={(event, editor) => {
-            console.log("Blur.", editor);
-          }}
-          onFocus={(event, editor) => {
-            console.log("Focus.", editor);
+            setcategoryContent(data);
           }}
           readOnly={true}
         />

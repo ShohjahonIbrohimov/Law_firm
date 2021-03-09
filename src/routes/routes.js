@@ -1,4 +1,4 @@
-import { News, Home, Service } from "../pages";
+import { News, Home, Service, Aboutus } from "../pages";
 
 export const ROUTES = [
   {
@@ -18,6 +18,12 @@ export const ROUTES = [
     key: "APP_NEWS",
     exact: true,
     component: () => <News />,
+  },
+  {
+    path: "/about",
+    key: "AP_ABOUT",
+    exact: true,
+    component: () => <Aboutus />,
   },
 ];
 

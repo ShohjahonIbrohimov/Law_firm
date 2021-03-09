@@ -10,10 +10,14 @@ import { persistor } from "./redux/store";
 import { store } from "./redux/store";
 
 ReactDOM.render(
-  <React.StrictMode>
-    <BrowserRouter>
-      <MainPage />
-    </BrowserRouter>
-  </React.StrictMode>,
+  <Provider store={store}>
+    <PersistGate loading={"Loading..."} persistor={persistor}>
+      <React.StrictMode>
+        <BrowserRouter>
+          <MainPage />
+        </BrowserRouter>
+      </React.StrictMode>
+    </PersistGate>
+  </Provider>,
   document.getElementById("root")
 );

@@ -1,17 +1,13 @@
-import { all, call } from 'redux-saga/effects';
-import { handleAddTicketAsync, handleUploadTickImgAsync, handleFetchTicketsAsync } from "./tickets/tickets.sagas";
-import { handleLoginAsync, handleAuthmeAsync,handleCreateUserAsync } from "./auth/auth.sagas";
+import { all, call } from "redux-saga/effects";
+import { handleLoginAsync, handleSignupAsync } from "./auth/auth.sagas";
+import { handleCRUDServiceAsync } from "./ourServices/service.sagas";
 
 export default function* rootSaga() {
-    yield all([
-        // TICKETS
-        call(handleAddTicketAsync),
-        call(handleUploadTickImgAsync),
-        call(handleFetchTicketsAsync),
-        // AUTH
-        call(handleLoginAsync),
-        call(handleAuthmeAsync),
-        call(handleCreateUserAsync)
-    ])
+  yield all([
+    // AUTH
+    call(handleLoginAsync),
+    call(handleSignupAsync),
+    // SERVICES
+    call(handleCRUDServiceAsync),
+  ]);
 }
-
