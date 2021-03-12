@@ -1,26 +1,23 @@
 import React from "react";
 import styles from "../../styles/News.module.css";
-
+import { useParams } from "react-router-dom";
+import { useSelector } from "react-redux";
 const Index = () => {
+  const params = useParams();
+  const news = useSelector((state) => state.newsReducer.news);
+
   return (
     <>
-      <h2 className={styles.title}>Lorem ipsum dolor sit amet.</h2>
+      <h2 className={styles.title}>
+        {news.filter((n) => n._id === params.id)[0].title}
+      </h2>
       <div className={styles.news_detail_wrapper}>
         <div
           className={styles.news_img_big}
           style={{ backgroundImage: "url(/photo.jpg)" }}
         ></div>
         <p className={styles.news_text}>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos
-          unde eius dicta tempore ex deleniti assumenda ab voluptatum odio, non
-          expedita laborum quos autem veritatis quasi quam! Non officiis facere
-          modi quisquam, esse eveniet vero. Numquam possimus enim aliquam
-          distinctio. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-          Voluptate eos officiis, quam incidunt laborum reprehenderit quia nisi
-          culpa autem numquam eveniet, perferendis exercitationem labore
-          corporis, expedita at! Sed deserunt ullam similique est quidem nam eos
-          vero atque, accusamus deleniti aperiam praesentium illum neque iste
-          error fugiat repellendus temporibus veniam optio.
+          {news.filter((n) => n._id === params.id)[0].content}
         </p>
       </div>
     </>

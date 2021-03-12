@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { BrowserRouter } from "react-router-dom";
 import ReactDOM from "react-dom";
 import MainPage from "./routes";
+import "antd/dist/antd.css";
 import "./styles/globals.css";
 // REDUX
 import { Provider } from "react-redux";

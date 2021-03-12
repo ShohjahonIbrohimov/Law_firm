@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import styles from "../styles/Login.module.css";
-import SpinnerBtn from "./Global/SpinnerBtn";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { startLogin } from "../redux/auth/auth.actions";
 import toast, { Toaster } from "react-hot-toast";
+import SpinnerBtn from "./Global/SpinnerBtn";
 
 const defaultValues = {
   login: "",
