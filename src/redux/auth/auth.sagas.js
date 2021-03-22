@@ -15,9 +15,11 @@ export function* handleLogin(action) {
       method: "POST",
       data: action.payload.data,
     });
-    yield put(successLogin(data.data.token));
+    yield put(successLogin(data.data));
     action.payload.afterSuccess();
-  } catch (error) {}
+  } catch (error) {
+    action.payload.afterError();
+  }
 }
 
 // SIGN UP
@@ -30,8 +32,9 @@ export function* handleSignup(action) {
     let data = yield axios({
       url: "api/users/signup",
       method: "POST",
-      data: action.payload,
+      data: action.payload.data,
     });
     yield put(successSignup(data.data));
+    action.payload.afterSuccess();
   } catch (error) {}
 }

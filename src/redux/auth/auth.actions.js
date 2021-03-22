@@ -21,3 +21,9 @@ export const successSignup = (data) => ({
   type: AUTH_ACTION_TYPES.SUCCESS_SIGN_UP,
   payload: data,
 });
+
+// LOG OUT
+export const logout = (data) => ({
+  type: AUTH_ACTION_TYPES.LOG_OUT,
+  payload: data,
+});

@@ -1,0 +1,35 @@
+.ant-badge-status-processing::after {
+  border: 8px solid #53c41abb;
+}
+
+.ant-badge-status-dot {
+  width: 70px;
+  height: 70px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.ant-badge-status-dot:hover {
+  background-color: #389e0d !important;
+}
+
+.send_question_wrapper {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+.send_question_wrapper i {
+  text-align: center;
+}
+
+.send_question_content {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  left: 17px;
+  top: 10px;
+  color: #fff;
+  font-weight: bold;
+}

@@ -2,8 +2,9 @@ import React, { useEffect } from "react";
 import { BrowserRouter } from "react-router-dom";
 import ReactDOM from "react-dom";
 import MainPage from "./routes";
-import "antd/dist/antd.css";
+import "antd/dist/antd.less";
 import "./styles/globals.css";
+import "./index.css";
 // REDUX
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";

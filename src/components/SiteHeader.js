@@ -3,20 +3,42 @@ import styles from "../styles/Siteheader.module.css";
 import logo from "../assets/images/law_firm_logo.png";
 import Signup from "./Signup";
 import Login from "./Login";
-import Modal from "./Modal";
+import Modal from "./Global/GModal";
+import { Button, Radio } from "antd";
+import { LoginOutlined } from "@ant-design/icons";
+
 // REDUX
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { logout } from "../redux/auth/auth.actions";
 
 const SiteHeader = () => {
   const [openSignup, setopenSignup] = useState(false);
-  const [hasAccount, sethasAccount] = useState(false);
+  const [hasAccount, sethasAccount] = useState(true);
   const user = useSelector((state) => state.authReducer.user);
+  const dispatch = useDispatch();
+
+  const handleAuth = () => {
+    user ? dispatch(logout()) : setopenSignup(true);
+  };
 
   return (
     <div className={styles.sitehead}>
-      <Modal width={30} open={openSignup} setopen={setopenSignup}>
-        {!hasAccount && <Signup sethasAccount={sethasAccount} />}
-        {hasAccount && <Login sethasAccount={sethasAccount} user={user} />}
+      <Modal
+        width={350}
+        open={openSignup}
+        setopen={setopenSignup}
+        title={hasAccount ? "Kirish" : "Ro'yxatdan o'tish"}
+      >
+        {!hasAccount && (
+          <Signup sethasAccount={sethasAccount} setopen={setopenSignup} />
+        )}
+        {hasAccount && (
+          <Login
+            sethasAccount={sethasAccount}
+            user={user}
+            setopen={setopenSignup}
+          />
+        )}
       </Modal>
 
       <div className='sitehead_logo'>
@@ -36,9 +58,14 @@ const SiteHeader = () => {
         </form>
       </div>
       <div>
-        <button onClick={() => setopenSignup(true)} className='glb_btn'>
-          login
-        </button>
+        <Button
+          type='primary'
+          icon={<LoginOutlined />}
+          size='large'
+          onClick={handleAuth}
+        >
+          {user ? "Chiqish" : "Kirish"}
+        </Button>
       </div>
 
       <div className={styles.sitehead_contact}>

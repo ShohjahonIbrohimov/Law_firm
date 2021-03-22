@@ -14,6 +14,9 @@ const SiteNavigation = () => {
       <li>
         <Link to=''>Aloqa</Link>
       </li>
+      <li>
+        <Link to='/questions'>Bizga berilgan savollar</Link>
+      </li>
     </ul>
   );
 };

@@ -5,7 +5,7 @@ import NewsContextProvider from "./NewsContext";
 const ContextProvider = ({ children }) => {
   return (
     <NewsContextProvider>
-      <ServicesContextProvider>{children}</ServicesContextProvider>;
+      <ServicesContextProvider>{children}</ServicesContextProvider>
     </NewsContextProvider>
   );
 };

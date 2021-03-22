@@ -1,0 +1,83 @@
+.slick-list,
+.slick-slider {
+  height: 100% !important;
+}
+
+.slick-slide {
+  margin: 0.5rem;
+}
+
+.carousel {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.685);
+  width: 150px;
+}
+
+.carousel .slick-prev,
+.carousel .slick-next {
+  width: 150px;
+  height: 60px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #000000a1;
+  z-index: 9;
+  transform: unset;
+}
+
+.carousel .slick-next {
+  bottom: 0;
+  top: unset;
+  right: 0;
+}
+
+.carousel + .slick-prev:hover {
+  background-color: #000000a1;
+}
+
+.carousel_item {
+  height: 120px;
+  width: 120px;
+  margin: 0.5rem;
+  background-color: white;
+  display: inline-block;
+  border: 2px solid red;
+}
+
+@media (max-width: 560px) {
+  .carousel {
+    bottom: 0;
+    right: 0;
+    left: 0;
+    top: unset;
+    width: unset;
+  }
+
+  .slick-track {
+    display: flex;
+  }
+
+  .carousel .slick-next {
+    position: absolute;
+    height: 100%;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    left: unset;
+    width: 50px;
+  }
+
+  .carousel .slick-prev {
+    position: absolute;
+    height: 100%;
+    left: 0;
+    bottom: 0;
+    top: 0;
+    right: unset;
+    width: 50px;
+  }
+}

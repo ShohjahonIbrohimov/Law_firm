@@ -1,0 +1,22 @@
+.ant-modal-close-x,
+.ant-drawer-close {
+  background-color: red;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0.2rem;
+  padding: 0;
+}
+
+.ant-modal-close-x svg,
+.ant-drawer-close svg {
+  fill: white;
+  font-size: 1rem;
+}
+
+.ant-modal-close-x:hover svg,
+.ant-drawer-close:hover svg {
+  fill: black;
+}

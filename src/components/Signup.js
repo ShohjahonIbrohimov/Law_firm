@@ -1,60 +1,99 @@
 import React, { useState } from "react";
-import styles from "../styles/Login.module.css";
-import SpinnerBtn from "./Global/SpinnerBtn";
-import { useForm } from "react-hook-form";
+import { Form, Input, Button } from "antd";
 import { useDispatch } from "react-redux";
 import { startSignup } from "../redux/auth/auth.actions";
+import toast, { Toaster } from "react-hot-toast";
 
-export default function App({ sethasAccount }) {
+export default function App({ sethasAccount, setopen }) {
   let [loading, setLoading] = useState(false);
 
-  const { register, handleSubmit } = useForm();
   const dispatch = useDispatch();
 
-  const onSubmit = (data) => {
+  const afterSuccess = () => {
+    setLoading(false);
+    setopen(false);
+    toast.success("Ro'yxatdan muvaffaqiyatli o'tdingiz!");
+  };
+
+  const onFinish = (data) => {
     setLoading(true);
-    dispatch(startSignup(data));
+    dispatch(startSignup({ data, afterSuccess: () => afterSuccess() }));
+  };
+
+  const onFinishFailed = (errorInfo) => {
+    console.log("Failed:", errorInfo);
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className={styles.login_form}>
-      <input name='fullName' ref={register} placeholder='F.I.SH' />
-      <input name='login' ref={register} placeholder='login' />
-      <input name='phone' ref={register} placeholder='+998' />
-      <input name='password' ref={register} placeholder='parol' />
-      <input name='role' ref={register} placeholder='role' />
-
-      <div style={{ display: "flex" }}>
-        <label htmlFor='erkak' style={{ marginRight: "1rem" }}>
-          Erkak:{" "}
-          <input
-            name='gender'
-            type='radio'
-            value='Erkak'
-            ref={register({ required: true })}
-          />
-        </label>
-
-        <label htmlFor='ayol'>
-          Ayol:
-          <input
-            name='gender'
-            type='radio'
-            value='Ayol'
-            ref={register({ required: true })}
-          />
-        </label>
-      </div>
-      <a
-        href='?'
-        onClick={(e) => {
-          e.preventDefault();
-          sethasAccount(true);
-        }}
+    <Form
+      name='basic'
+      initialValues={{
+        remember: true,
+      }}
+      onFinish={onFinish}
+      onFinishFailed={onFinishFailed}
+      size='large'
+    >
+      <Form.Item
+        name='username'
+        rules={[
+          {
+            required: true,
+            message: "Iltimos, Familiya, ism sharf kiriting",
+          },
+        ]}
       >
-        Ro'yxatdan o'tkanmisiz ? Kirish
-      </a>
-      <SpinnerBtn loading={loading} text="Ro'yxatdan o'tish" />
-    </form>
+        <Input placeholder='F.I.SH.' />
+      </Form.Item>
+
+      <Form.Item
+        name='login'
+        rules={[
+          {
+            required: true,
+            message: "Iltimos Login ni kiriting",
+          },
+        ]}
+      >
+        <Input placeholder='Login' />
+      </Form.Item>
+
+      <Form.Item
+        name='phone'
+        rules={[
+          {
+            required: true,
+            message: "Iltimos Telfoningizni kiriting",
+          },
+        ]}
+      >
+        <Input placeholder='+998 XX XXX XX XX' />
+      </Form.Item>
+
+      <Form.Item
+        name='password'
+        rules={[
+          {
+            required: true,
+            message: "Iltimos parolni kiriting",
+          },
+        ]}
+      >
+        <Input.Password placeholder='Parol' />
+      </Form.Item>
+
+      <Form.Item>
+        <Button
+          loading={loading}
+          type='primary'
+          htmlType='submit'
+          style={{ width: "100%" }}
+        >
+          Ro'yxatdan o'tish
+        </Button>
+        <span onClick={() => sethasAccount(true)}>Akkauntga kirish</span>
+      </Form.Item>
+      <Toaster />
+    </Form>
   );
 }
