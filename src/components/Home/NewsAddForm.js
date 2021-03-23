@@ -15,6 +15,7 @@ const NewsAddForm = ({ defaults }) => {
   const dispatch = useDispatch();
   const [imageUrl, setimageUrl] = useState("/dss.jpg");
   const [form] = Form.useForm();
+
   const afterSuccess = () => {
     toast.success(defaults ? "Yangilik tahrirlandi" : "Yangilik qo'shildi");
     if (defaults) {
@@ -123,7 +124,6 @@ const NewsAddForm = ({ defaults }) => {
           uploadButton
         )}
       </Upload> */}
-      <Toaster />
     </Form>
   );
 };

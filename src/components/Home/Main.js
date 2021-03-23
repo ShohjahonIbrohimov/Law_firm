@@ -43,7 +43,7 @@ const Main = () => {
     if (token) {
       setquestionVisible(true);
     } else {
-      toast(
+      toast.error(
         "Savol yuborish uchun ro'yxatdan o'ting yoki kabinetingizga Kiring",
         {
           duration: 6000,
@@ -78,16 +78,6 @@ const Main = () => {
       <AskQuestionDrawer
         visible={questionVisible}
         setvisible={setquestionVisible}
-      />
-      <Toaster
-        toastOptions={{
-          style: {
-            background: "#E15549",
-            color: "#fff",
-            fontSize: "1.1rem",
-          },
-        }}
-        position='bottom-left'
       />
     </div>
   );

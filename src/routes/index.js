@@ -11,10 +11,12 @@ import SiteHeader from "../components/SiteHeader";
 import SiteNavigation from "../components/SiteNavigation";
 import ContextProvider from "../context/ContextProvider";
 import FetchSiteData from "../components/Global/FetchSiteData";
+import toast, { Toaster } from "react-hot-toast";
+
 const MainPage = () => {
   const token = useSelector((state) => state.authReducer.token);
 
-  axios.defaults.baseURL = "http://188.166.158.171/";
+  axios.defaults.baseURL = "http://134.209.214.252/";
   axios.defaults.headers.common["authorization"] = token;
 
   return (
@@ -29,6 +31,7 @@ const MainPage = () => {
           ))}
         </Switch>
         <FetchSiteData />
+        <Toaster />
       </ContextProvider>
 
       {/* <ScreenSignIn /> */}

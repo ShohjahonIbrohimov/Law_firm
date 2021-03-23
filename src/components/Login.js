@@ -91,7 +91,7 @@ export default function App({ sethasAccount, setopen }) {
         Yoki{" "}
         <span onClick={() => sethasAccount(false)}>Ro'yxatdan o'ting!</span>
       </Form.Item>
-      <Toaster />
+      {/* <Toaster /> */}
     </Form>
   );
 }

@@ -69,6 +69,17 @@ export default function App({ sethasAccount, setopen }) {
       >
         <Input placeholder='+998 XX XXX XX XX' />
       </Form.Item>
+      <Form.Item
+        name='role'
+        rules={[
+          {
+            required: true,
+            message: "rol",
+          },
+        ]}
+      >
+        <Input placeholder='+998 XX XXX XX XX' />
+      </Form.Item>
 
       <Form.Item
         name='password'
@@ -93,7 +104,6 @@ export default function App({ sethasAccount, setopen }) {
         </Button>
         <span onClick={() => sethasAccount(true)}>Akkauntga kirish</span>
       </Form.Item>
-      <Toaster />
     </Form>
   );
 }
