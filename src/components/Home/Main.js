@@ -44,7 +44,12 @@ const Main = () => {
       setquestionVisible(true);
     } else {
       toast.error(
-        "Savol yuborish uchun ro'yxatdan o'ting yoki kabinetingizga Kiring",
+        (t) => (
+          <span>
+            Savol yuborish uchun ro'yxatdan o'ting yoki kabinetingizga Kiring
+            <button onClick={() => toast.dismiss(t.id)}>Yaxshi</button>
+          </span>
+        ),
         {
           duration: 6000,
         }

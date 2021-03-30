@@ -1,11 +1,16 @@
 import React from "react";
-import { Form, Input } from "antd";
+import { Form, Input, Button } from "antd";
 
-const AskQuestionForm = () => {
+const AskQuestionForm = ({ handleSendQuestion }) => {
+  const onFinish = (values) => {
+    handleSendQuestion(values);
+    console.log("Success:", values);
+  };
+
   return (
-    <Form layout='vertical'>
+    <Form layout='vertical' onFinish={onFinish}>
       <Form.Item
-        name='description'
+        name='body'
         label='Savol matni'
         rules={[
           {
@@ -15,6 +20,11 @@ const AskQuestionForm = () => {
         ]}
       >
         <Input.TextArea rows={10} placeholder='Savolingizni shu yerga yozing' />
+      </Form.Item>
+      <Form.Item>
+        <Button type='primary' htmlType='submit'>
+          Yuborish
+        </Button>
       </Form.Item>
     </Form>
   );

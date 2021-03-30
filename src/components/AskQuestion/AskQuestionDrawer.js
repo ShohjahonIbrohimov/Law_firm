@@ -1,23 +1,45 @@
 import React, { useState } from "react";
 import { Drawer, Button } from "antd";
-import { PlusOutlined } from "@ant-design/icons";
 import AskQuesionForm from "./AskQuestionForm";
+import toast from "react-hot-toast";
+// REDUX
+import { useDispatch, useSelector } from "react-redux";
+import { startCrudQuestions } from "../../redux/questions/questions.actions";
 
-const AskQuestionDrawer = ({visible, setvisible}) => {
+const AskQuestionDrawer = ({ visible, setvisible }) => {
+  const dispatch = useDispatch();
+  const user = useSelector((state) => state.authReducer.user);
 
-  const showDrawer = () => {
-    setvisible(true);
+  const afterSuccess = () => {
+    toast.success("Savol muvaffaqiyatli yuborildi");
+  };
+
+  const afterError = () => {
+    toast.error("Xatolik yuz berdi");
   };
 
   const onClose = () => {
     setvisible(false);
   };
 
+  const handleSendQuestion = (data) => {
+    data.author = user._id;
+    dispatch(
+      startCrudQuestions({
+        url: "/api/questions",
+        data,
+        method: "POST",
+        afterSuccess,
+        afterError,
+      })
+    );
+  };
+
   return (
     <>
       <Drawer
-        title="Savol yuborish"
-        width={720}
+        title='Savol yuborish'
+        width='100%'
         onClose={onClose}
         visible={visible}
         bodyStyle={{ paddingBottom: 80 }}
@@ -30,13 +52,10 @@ const AskQuestionDrawer = ({visible, setvisible}) => {
             <Button onClick={onClose} style={{ marginRight: 8 }}>
               Bekor qilish
             </Button>
-            <Button onClick={onClose} type='primary'>
-              Yuborish
-            </Button>
           </div>
         }
       >
-        <AskQuesionForm />
+        <AskQuesionForm handleSendQuestion={handleSendQuestion} />
       </Drawer>
     </>
   );

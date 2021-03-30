@@ -1,10 +1,8 @@
-import React, { useEffect, useState } from "react";
-import styles from "../styles/Login.module.css";
-import { useForm } from "react-hook-form";
+import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { startLogin } from "../redux/auth/auth.actions";
-import toast, { Toaster } from "react-hot-toast";
-import { Form, Input, Button, Checkbox } from "antd";
+import toast from "react-hot-toast";
+import { Form, Input, Button } from "antd";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
 
 export default function App({ sethasAccount, setopen }) {
@@ -38,17 +36,17 @@ export default function App({ sethasAccount, setopen }) {
       size='large'
     >
       <Form.Item
-        name='login'
+        name='phone'
         rules={[
           {
             required: true,
-            message: "Please input your Username!",
+            message: "Iltimos telefon nomerni kiriting!",
           },
         ]}
       >
         <Input
           prefix={<UserOutlined className='site-form-item-icon' />}
-          placeholder='Username'
+          placeholder='Telefon nomer'
         />
       </Form.Item>
       <Form.Item
@@ -56,25 +54,16 @@ export default function App({ sethasAccount, setopen }) {
         rules={[
           {
             required: true,
-            message: "Please input your Password!",
+            message: "Iltimos parolni kiriting!",
           },
         ]}
       >
         <Input
           prefix={<LockOutlined className='site-form-item-icon' />}
           type='password'
-          placeholder='Password'
+          placeholder='Parol'
         />
       </Form.Item>
-      {/* <Form.Item>
-        <Form.Item name='remember' valuePropName='checked' noStyle>
-          <Checkbox>Remember me</Checkbox>
-        </Form.Item>
-
-        <a className='login-form-forgot' href=''>
-          Forgot password
-        </a>
-      </Form.Item> */}
 
       <Form.Item>
         <Button
@@ -91,7 +80,6 @@ export default function App({ sethasAccount, setopen }) {
         Yoki{" "}
         <span onClick={() => sethasAccount(false)}>Ro'yxatdan o'ting!</span>
       </Form.Item>
-      {/* <Toaster /> */}
     </Form>
   );
 }

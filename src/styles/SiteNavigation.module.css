@@ -14,3 +14,9 @@
 .navigation li:hover {
   background-color: var(--lighter-black);
 }
+
+@media (max-width: 560px) {
+  .navigation {
+    display: none;
+  }
+}

@@ -1,0 +1,18 @@
+.social_media_wrap {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.social_media {
+  display: flex;
+  align-items: center;
+  margin-right: 1.5rem;
+}
+
+.facebook {
+  color: blue;
+}
+.telegram {
+  color: #37afe2;
+}

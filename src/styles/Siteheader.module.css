@@ -1,3 +1,11 @@
+.header_wrapper {
+  margin-bottom: 1rem;
+}
+
+.showon_mobile {
+  display: none;
+}
+
 .sitehead {
   display: flex;
   align-items: center;
@@ -86,5 +94,16 @@
   .search_wrapper,
   .search_container {
     width: 100%;
+  }
+}
+
+@media (max-width: 560px) {
+  .search_container,
+  .sitehead_contact {
+    display: none;
+  }
+
+  .showon_mobile {
+    display: block;
   }
 }
