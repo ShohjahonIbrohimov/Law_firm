@@ -16,7 +16,7 @@
 }
 
 .navigation li:hover {
-  background-color: var(--lighter-black);
+  background-color: var(--primary-color-light);
 }
 
 @media (max-width: 560px) {

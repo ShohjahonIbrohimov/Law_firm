@@ -3,7 +3,7 @@ import styles from "../../styles/Home.module.css";
 import News from "./News";
 import OurStaff from "./OurStaff";
 import Services from "../OurService/Services";
-import { Affix, Badge } from "antd";
+import { Affix, Badge, Button, Space } from "antd";
 import AskQuestionDrawer from "../AskQuestion/AskQuestionDrawer";
 import toast, { Toaster } from "react-hot-toast";
 // REDUX
@@ -46,8 +46,20 @@ const Main = () => {
       toast.error(
         (t) => (
           <span>
-            Savol yuborish uchun ro'yxatdan o'ting yoki kabinetingizga Kiring
-            <button onClick={() => toast.dismiss(t.id)}>Yaxshi</button>
+            <Space>
+              <span>
+                Savol yuborish uchun ro'yxatdan o'ting yoki kabinetingizga
+                kiring
+              </span>
+              <Button
+                type='primary'
+                size='small'
+                className='login-form-button'
+                onClick={() => toast.dismiss(t.id)}
+              >
+                Yopish
+              </Button>
+            </Space>
           </span>
         ),
         {
@@ -74,7 +86,7 @@ const Main = () => {
         className='send_question_wrapper'
         onClick={handleOpenQuestionDrawer}
       >
-        <Badge status='processing' size='large' color='#52c41a' />
+        <Badge status='processing' size='large' color='#1a4c6d' />
         <span className='send_question_content'>
           <span>Savol</span>
           <i class='bx bxl-telegram bx-sm'></i>

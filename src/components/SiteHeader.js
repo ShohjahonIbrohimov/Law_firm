@@ -102,7 +102,7 @@ const SiteHeader = () => {
           </Space>
           <div className={styles.sitehead_contact}>
             <SocialMedia />
-            <h3>+998 99 485 77 88</h3>
+            <h3>+998 94 208 0878</h3>
           </div>
         </Space>
         <MobileNav

@@ -81,6 +81,17 @@ export default function App({ sethasAccount, setopen }) {
         <Input.Password placeholder='Parol' />
       </Form.Item>
 
+      <Form.Item
+        name='role'
+        rules={[
+          {
+            required: true,
+            message: "Iltimos parolni kiriting",
+          },
+        ]}
+      >
+        <Input.Password placeholder='Role' />
+      </Form.Item>
       <Form.Item>
         <Button
           loading={loading}

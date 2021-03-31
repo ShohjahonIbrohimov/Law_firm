@@ -1,5 +1,5 @@
 .ant-badge-status-processing::after {
-  border: 8px solid #53c41abb;
+  border: 8px solid var(--primary-color);
 }
 
 .ant-badge-status-dot {
@@ -10,7 +10,7 @@
 }
 
 .ant-badge-status-dot:hover {
-  background-color: #389e0d !important;
+  background-color: var(--primary-color-light) !important;
 }
 
 .send_question_wrapper {

@@ -14,9 +14,9 @@ const SiteNavigation = () => {
       <ul className={styles.navigation}>
         {navItems.map((item) => {
           return (
-            <li>
-              <Link to={item.url}>{item.text}</Link>
-            </li>
+            <Link to={item.url}>
+              <li>{item.text}</li>
+            </Link>
           );
         })}
       </ul>
