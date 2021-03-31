@@ -38,7 +38,7 @@ const UserMenu = () => {
   return (
     <Space>
       <span>
-        <DollarOutlined /> Balance: 0
+        <DollarOutlined /> Balance: {user.balance} so'm
       </span>
       <Dropdown overlay={menu} placement='bottomRight' visible={visible} arrow>
         <Button

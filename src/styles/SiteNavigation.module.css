@@ -1,8 +1,12 @@
+.navigation_wrapper {
+  margin-bottom: 1rem;
+}
+
 .navigation {
   background-color: var(--primary-color);
   display: flex;
   list-style-type: none;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 
 .navigation li {

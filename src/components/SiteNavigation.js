@@ -10,7 +10,7 @@ const SiteNavigation = () => {
   const history = useHistory();
 
   return (
-    <div>
+    <div className={styles.navigation_wrapper}>
       <ul className={styles.navigation}>
         {navItems.map((item) => {
           return (
