@@ -1,15 +1,11 @@
 import ServiceType from "./ServiceType";
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "../../styles/Service.module.css";
 import { useParams } from "react-router-dom";
-import { ServicesContext } from "../../context/ServicesContext";
 import Header from "./Header";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import {
-  updateService,
-  startCrudService,
-} from "../../redux/ourServices/service.actions";
+import { startCrudService } from "../../redux/ourServices/service.actions";
 
 const Main = () => {
   const params = useParams();
@@ -41,10 +37,10 @@ const Main = () => {
   };
 
   // DELETE CATEGORY
-  const handleDelete = (num) => {
+  const handleDelete = (id) => {
     setservice({
       ...service,
-      category: service.category.filter((c) => c.number !== num),
+      category: service.category.filter((c) => c._id !== id),
     });
   };
 
@@ -71,18 +67,15 @@ const Main = () => {
     );
   };
 
-  const handleUpdate = (title, content, number) => {
+  const handleUpdate = (title, content, _id) => {
     let ctgData = {
       title,
       content,
-      number,
+      _id,
     };
     setservice({
       ...service,
-      category: [
-        ...service.category.filter((c) => c.number !== number),
-        ctgData,
-      ],
+      category: [...service.category.filter((c) => c._id !== _id), ctgData],
     });
   };
 

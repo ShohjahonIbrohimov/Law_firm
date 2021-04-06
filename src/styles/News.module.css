@@ -10,12 +10,12 @@
 
 .news_image {
   height: 100px;
-  width: 100px;
+  min-width: 100px;
+  width: 60%;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   margin-right: 0.5rem;
-  background-image: url("../assets/images/photo.jpeg");
 }
 
 .link_to_news:hover {

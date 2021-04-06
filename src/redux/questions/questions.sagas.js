@@ -13,6 +13,7 @@ export function* handleCRUDquestionsAsync() {
 
 export function* handleCRUDquestions(action) {
   const payload = action.payload;
+  console.log();
   try {
     let data = yield axios({
       url: payload.url,

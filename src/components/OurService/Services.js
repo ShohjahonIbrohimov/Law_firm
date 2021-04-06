@@ -2,12 +2,10 @@ import React from "react";
 import { useSelector } from "react-redux";
 import ServiceCard from "./ServiceCard";
 import styles from "../../styles/Home.module.css";
-import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import {
-  startCrudService,
-  addService,
-} from "../../redux/ourServices/service.actions";
+import { startCrudService } from "../../redux/ourServices/service.actions";
+import { Button } from "antd";
+import { PlusOutlined } from "@ant-design/icons";
 
 const Services = ({ handleAddServices }) => {
   const services = useSelector((state) => state.serviceReducer.services);
@@ -38,21 +36,21 @@ const Services = ({ handleAddServices }) => {
     );
   };
 
-  const handleSaveServices = () => {};
   return (
     <div>
-      <div className='section_title_wrapper'>
-        <h3 className='section_title'>Bizning xizmatlar</h3>
+      <Button
+        onClick={handleAddService}
+        type='primary'
+        icon={<PlusOutlined />}
+        size='large'
+        style={{ marginBottom: "1rem" }}
+      >
+        Bizning xizmatlar
+      </Button>
 
-        <button className='glb_btn' onClick={handleAddService}>
-          <i class='bx bx-plus-circle bx-sm'></i>
-        </button>
-      </div>
       <div className={styles.services}>
         {services.map((s) => (
-          // <Link to={`/service/${s.number}`}>
           <ServiceCard data={s} />
-          // </Link>
         ))}
       </div>
     </div>

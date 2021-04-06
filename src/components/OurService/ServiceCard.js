@@ -10,6 +10,7 @@ import {
 const ServiceCard = ({ data }) => {
   const dispatch = useDispatch();
 
+  console.log(data);
   const afterSuccess = () => {
     dispatch(
       startCrudService({
@@ -39,7 +40,7 @@ const ServiceCard = ({ data }) => {
         {data.category.map((c) => {
           return (
             <p>
-              <Link to={`/service/${data.id}`}>- {c.title}</Link>
+              <Link to={`/service/${data._id}`}>- {c.title}</Link>
             </p>
           );
         })}

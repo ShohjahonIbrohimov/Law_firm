@@ -3,24 +3,18 @@ import styles from "../../styles/Service.module.css";
 import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 
-const ServiceType = ({
-  category,
-  saveToDb,
-  handleUpdate,
-  handleDelete,
-  save,
-  setsave,
-}) => {
+const ServiceType = ({ category, saveToDb, handleUpdate, handleDelete }) => {
   const [expand, setexpand] = useState(false);
   const [categoryTitle, setcategoryTitle] = useState(category.title);
   const [categoryContent, setcategoryContent] = useState(category.content);
+  const [save, setsave] = useState(true);
 
   const handleEdit = () => {
     setsave(false);
   };
 
   const update = () => {
-    handleUpdate(categoryTitle, categoryContent, category.number);
+    handleUpdate(categoryTitle, categoryContent, category._id);
     setsave(true);
   };
 
@@ -38,7 +32,7 @@ const ServiceType = ({
         <div className={styles.actions}>
           <div
             className={`${styles.acordion_icon_del} ${styles.acordion_icon}`}
-            onClick={() => handleDelete(category.number)}
+            onClick={() => handleDelete(category._id)}
           >
             <i
               className='bx bxs-chevron-right bx-sm acordion_icon'
@@ -47,7 +41,7 @@ const ServiceType = ({
             ></i>
           </div>
           <div
-            onClick={() => (save ? handleEdit() : update())}
+            onClick={save ? handleEdit : update}
             className={styles.acordion_icon}
             style={{ margin: "0 0.3rem" }}
           >

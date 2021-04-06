@@ -1,17 +1,14 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Switch, Route } from "react-router-dom";
 
-import { ROUTES, ROUTES_SIGN_IN_SIGN_UP } from "../routes/routes";
+import { ROUTES } from "../routes/routes";
 import axios from "axios";
-import { Redirect } from "react-router-dom";
 // REDUX
-import { createStructuredSelector } from "reselect";
 import { useSelector } from "react-redux";
 import SiteHeader from "../components/SiteHeader";
 import SiteNavigation from "../components/SiteNavigation";
-import ContextProvider from "../context/ContextProvider";
 import FetchSiteData from "../components/Global/FetchSiteData";
-import toast, { Toaster } from "react-hot-toast";
+import { Toaster } from "react-hot-toast";
 
 const MainPage = () => {
   const token = useSelector((state) => state.authReducer.token);
@@ -21,32 +18,15 @@ const MainPage = () => {
 
   return (
     <div className='container'>
-      {/* {!token && <Redirect to='/login' />} */}
-      <ContextProvider>
-        <SiteHeader />
-        <SiteNavigation />
-        <Switch>
-          {ROUTES.map((route) => (
-            <Route {...route} />
-          ))}
-        </Switch>
-        <FetchSiteData />
-        <Toaster />
-      </ContextProvider>
-
-      {/* <ScreenSignIn /> */}
-    </div>
-  );
-};
-
-const ScreenSignIn = () => {
-  return (
-    <div className='container'>
+      <SiteHeader />
+      <SiteNavigation />
       <Switch>
-        {ROUTES_SIGN_IN_SIGN_UP.map((route) => (
+        {ROUTES.map((route) => (
           <Route {...route} />
         ))}
       </Switch>
+      <FetchSiteData />
+      <Toaster />
     </div>
   );
 };

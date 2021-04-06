@@ -6,9 +6,14 @@ import { Card, Button } from "antd";
 import toast, { Toaster } from "react-hot-toast";
 import { useDispatch } from "react-redux";
 import { startCrudNews } from "../../redux/news/news.actions";
+import { baseUrl } from "../../baseUrl";
 
 const NewsSection = ({ news, setdefaults, setopen }) => {
   const dispatch = useDispatch();
+
+  const newImage = {
+    backgroundImage: `url(${baseUrl}${news.img})`,
+  };
 
   const afterSuccess = () => {
     dispatch(
@@ -48,7 +53,7 @@ const NewsSection = ({ news, setdefaults, setopen }) => {
         ]}
       >
         <div style={{ display: "flex" }}>
-          <div className={styles.news_image}></div>
+          <div className={styles.news_image} style={newImage}></div>
           <Link to={`/news/${news._id}`}>
             <p>{news.title}</p>
           </Link>

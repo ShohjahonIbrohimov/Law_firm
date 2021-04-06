@@ -1,24 +1,12 @@
 import React from "react";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 import styles from "../../styles/Home.module.css";
 import staff from "../../assets/staff.json";
-
-const settings = {
-  dots: true,
-  infinite: true,
-  slidesToShow: 1,
-  slidesToScroll: 1,
-  autoplay: true,
-  speed: 1000,
-  autoplaySpeed: 2000,
-};
+import { Carousel } from "antd";
 
 const OurStaff = () => {
   return (
     <div>
-      <Slider {...settings}>
+      <Carousel autoplay={true}>
         {staff.map((s) => {
           return (
             <div>
@@ -35,7 +23,7 @@ const OurStaff = () => {
             </div>
           );
         })}
-      </Slider>
+      </Carousel>
     </div>
   );
 };

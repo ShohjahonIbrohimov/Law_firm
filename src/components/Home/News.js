@@ -1,27 +1,32 @@
 import React, { useState } from "react";
 import NewsSection from "./NewsSection";
 import styles from "../../styles/Home.module.css";
-import { Card, Space } from "antd";
+import { Space } from "antd";
 import NewsAddForm from "./NewsAddForm";
-import Modal from "../Modal";
+import Modal from "../Global/GModal";
 import { useSelector } from "react-redux";
+import { Button } from "antd";
+import { PlusOutlined } from "@ant-design/icons";
+
 const News = ({ setopen, open }) => {
   const news = useSelector((state) => state.newsReducer.news);
   const [defaults, setdefaults] = useState(null);
-  const afterSuccess = () => {};
 
   return (
     <div className={styles.news}>
-      <Modal open={open} setopen={setopen}>
+      <Modal open={open} setopen={setopen} width={1000}>
         <NewsAddForm defaults={defaults} />
       </Modal>
-      <div className='section_title_wrapper'>
-        <h3 className='section_title'>Huquqiy yangiliklar</h3>
-        <button className='glb_btn' onClick={() => setopen(true)}>
-          <i class='bx bx-plus-circle bx-sm'></i>
-        </button>
-      </div>
 
+      <Button
+        onClick={() => setopen(true)}
+        type='primary'
+        icon={<PlusOutlined />}
+        size='large'
+        style={{ marginBottom: "1rem" }}
+      >
+        Huquqiy yangiliklar
+      </Button>
       <Space direction='vertical' style={{ width: "100%" }}>
         {news.map((n) => (
           <NewsSection setdefaults={setdefaults} news={n} setopen={setopen} />
