@@ -9,6 +9,8 @@ import { PlusOutlined } from "@ant-design/icons";
 
 const Services = ({ handleAddServices }) => {
   const services = useSelector((state) => state.serviceReducer.services);
+  const user = useSelector((state) => state.authReducer.user);
+
   const dispatch = useDispatch();
 
   const afterSuccess = () => {
@@ -39,9 +41,9 @@ const Services = ({ handleAddServices }) => {
   return (
     <div>
       <Button
-        onClick={handleAddService}
+        onClick={user?.role === "manager" ? handleAddService : () => ""}
         type='primary'
-        icon={<PlusOutlined />}
+        icon={user?.role === "manager" && <PlusOutlined />}
         size='large'
         style={{ marginBottom: "1rem" }}
       >

@@ -1,24 +1,24 @@
 {
   "files": {
-    "main.css": "/static/css/main.56d72414.chunk.css",
-    "main.js": "/static/js/main.9c606c36.chunk.js",
-    "main.js.map": "/static/js/main.9c606c36.chunk.js.map",
+    "main.css": "/static/css/main.6338a96b.chunk.css",
+    "main.js": "/static/js/main.9e77f573.chunk.js",
+    "main.js.map": "/static/js/main.9e77f573.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.2a801656.js",
     "runtime-main.js.map": "/static/js/runtime-main.2a801656.js.map",
     "static/css/2.3acd22bf.chunk.css": "/static/css/2.3acd22bf.chunk.css",
-    "static/js/2.b7e21273.chunk.js": "/static/js/2.b7e21273.chunk.js",
-    "static/js/2.b7e21273.chunk.js.map": "/static/js/2.b7e21273.chunk.js.map",
+    "static/js/2.63433ce4.chunk.js": "/static/js/2.63433ce4.chunk.js",
+    "static/js/2.63433ce4.chunk.js.map": "/static/js/2.63433ce4.chunk.js.map",
     "index.html": "/index.html",
     "static/css/2.3acd22bf.chunk.css.map": "/static/css/2.3acd22bf.chunk.css.map",
-    "static/css/main.56d72414.chunk.css.map": "/static/css/main.56d72414.chunk.css.map",
-    "static/js/2.b7e21273.chunk.js.LICENSE.txt": "/static/js/2.b7e21273.chunk.js.LICENSE.txt",
+    "static/css/main.6338a96b.chunk.css.map": "/static/css/main.6338a96b.chunk.css.map",
+    "static/js/2.63433ce4.chunk.js.LICENSE.txt": "/static/js/2.63433ce4.chunk.js.LICENSE.txt",
     "static/media/law_firm_logo.b044a15f.png": "/static/media/law_firm_logo.b044a15f.png"
   },
   "entrypoints": [
     "static/js/runtime-main.2a801656.js",
     "static/css/2.3acd22bf.chunk.css",
-    "static/js/2.b7e21273.chunk.js",
-    "static/css/main.56d72414.chunk.css",
-    "static/js/main.9c606c36.chunk.js"
+    "static/js/2.63433ce4.chunk.js",
+    "static/css/main.6338a96b.chunk.css",
+    "static/js/main.9e77f573.chunk.js"
   ]
 }

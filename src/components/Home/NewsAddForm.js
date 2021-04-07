@@ -10,7 +10,6 @@ import axios from "axios";
 const { reset } = Form;
 
 const NewsAddForm = ({ defaults }) => {
-  // const [loading, setloading] = useState(false);
   const dispatch = useDispatch();
   const [imageUrl, setimageUrl] = useState(null);
   const [form] = Form.useForm();
@@ -64,10 +63,13 @@ const NewsAddForm = ({ defaults }) => {
   };
 
   useEffect(() => {
-   if(defaults) {
+    if (defaults) {
       form.setFieldsValue(defaults);
       setimageUrl(defaults.img);
-   }
+    } else {
+      form.resetFields();
+      setimageUrl(null);
+    }
   }, [defaults]);
 
   return (

@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "../../styles/ServiceCard.module.css";
 import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   startCrudService,
   addService,
@@ -9,6 +9,8 @@ import {
 
 const ServiceCard = ({ data }) => {
   const dispatch = useDispatch();
+
+  const user = useSelector((state) => state.authReducer.user);
 
   console.log(data);
   const afterSuccess = () => {
@@ -45,12 +47,16 @@ const ServiceCard = ({ data }) => {
           );
         })}
       </div>
-      <div className={`${styles.delete}`} onClick={handleDelete}>
-        <i style={{ color: "white" }} className='bx bxs-trash-alt'></i>
-      </div>
-      <Link to={`/service/${data._id}`} className={styles.edit}>
-        <i className='bx bxs-edit bx-xs' style={{ color: "white" }}></i>
-      </Link>
+      {user?.role === "manager" && (
+        <div>
+          <div className={`${styles.delete}`} onClick={handleDelete}>
+            <i style={{ color: "white" }} className='bx bxs-trash-alt'></i>
+          </div>
+          <Link to={`/service/${data._id}`} className={styles.edit}>
+            <i className='bx bxs-edit bx-xs' style={{ color: "white" }}></i>
+          </Link>
+        </div>
+      )}
     </div>
   );
 };

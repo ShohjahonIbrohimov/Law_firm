@@ -14,6 +14,8 @@
   color: var(--lighter-black);
   border-bottom: 1px solid var(--lighter-black);
   padding-bottom: 0.5rem;
+  font-size: 0.7rem;
+  font-weight: bold;
 }
 
 .service_types p {

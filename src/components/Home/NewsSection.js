@@ -4,12 +4,13 @@ import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
 import { Card, Button } from "antd";
 import toast, { Toaster } from "react-hot-toast";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { startCrudNews } from "../../redux/news/news.actions";
 import { baseUrl } from "../../baseUrl";
 
 const NewsSection = ({ news, setdefaults, setopen }) => {
   const dispatch = useDispatch();
+  const user = useSelector((state) => state.authReducer.user);
 
   const newImage = {
     backgroundImage: `url(${baseUrl}${news.img})`,
@@ -47,10 +48,14 @@ const NewsSection = ({ news, setdefaults, setopen }) => {
     <>
       <Card
         hoverable
-        actions={[
-          <DeleteOutlined onClick={handleDelete} key='setting' />,
-          <EditOutlined key='edit' onClick={handleEdit} />,
-        ]}
+        actions={
+          user?.role === "manager"
+            ? [
+                <DeleteOutlined onClick={handleDelete} key='setting' />,
+                <EditOutlined key='edit' onClick={handleEdit} />,
+              ]
+            : []
+        }
       >
         <div style={{ display: "flex" }}>
           <div className={styles.news_image} style={newImage}></div>

@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import styles from "../../styles/Service.module.css";
 import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
+import { useSelector } from "react-redux";
 
 const ServiceType = ({ category, saveToDb, handleUpdate, handleDelete }) => {
   const [expand, setexpand] = useState(false);
+  const user = useSelector((state) => state.authReducer.user);
   const [categoryTitle, setcategoryTitle] = useState(category.title);
   const [categoryContent, setcategoryContent] = useState(category.content);
   const [save, setsave] = useState(true);
@@ -30,31 +32,35 @@ const ServiceType = ({ category, saveToDb, handleUpdate, handleDelete }) => {
           style={{ fontSize: "0.8rem", width: "100%" }}
         />
         <div className={styles.actions}>
-          <div
-            className={`${styles.acordion_icon_del} ${styles.acordion_icon}`}
-            onClick={() => handleDelete(category._id)}
-          >
-            <i
-              className='bx bxs-chevron-right bx-sm acordion_icon'
-              style={{ color: "white" }}
-              class='bx bxs-trash-alt'
-            ></i>
-          </div>
-          <div
-            onClick={save ? handleEdit : update}
-            className={styles.acordion_icon}
-            style={{ margin: "0 0.3rem" }}
-          >
-            {save && (
-              <i class='bx bxs-edit bx-sm' style={{ color: "white" }}></i>
-            )}
-            {!save && (
+          {user?.role === "manager" && (
+            <div
+              className={`${styles.acordion_icon_del} ${styles.acordion_icon}`}
+              onClick={() => handleDelete(category._id)}
+            >
               <i
-                class='bx bx-check-circle bx-sm'
+                className='bx bxs-chevron-right bx-sm acordion_icon'
                 style={{ color: "white" }}
+                class='bx bxs-trash-alt'
               ></i>
-            )}
-          </div>
+            </div>
+          )}
+          {user?.role === "manager" && (
+            <div
+              onClick={save ? handleEdit : update}
+              className={styles.acordion_icon}
+              style={{ margin: "0 0.3rem" }}
+            >
+              {save && (
+                <i class='bx bxs-edit bx-sm' style={{ color: "white" }}></i>
+              )}
+              {!save && (
+                <i
+                  class='bx bx-check-circle bx-sm'
+                  style={{ color: "white" }}
+                ></i>
+              )}
+            </div>
+          )}
           <div
             className={styles.acordion_icon}
             onClick={() => setexpand(!expand)}

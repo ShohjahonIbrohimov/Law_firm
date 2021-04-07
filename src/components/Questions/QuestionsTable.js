@@ -15,6 +15,16 @@ const QuestionsTable = ({ searchInput }) => {
   const [currentQuestion, setcurrentQuestion] = useState(null);
   const dispatch = useDispatch();
   const questions = useSelector((state) => state.questionsReducer.questions);
+  const [questionsFiltered, setquestionsFiltered] = useState([]);
+  const user = useSelector((state) => state.authReducer.user);
+
+  useEffect(() => {
+    if (user.role !== "manager" && questions) {
+      setquestionsFiltered(questions.filter((q) => q.author._id === user._id));
+    } else {
+      setquestionsFiltered(questions);
+    }
+  }, [questions]);
 
   useEffect(() => {
     dispatch(
@@ -121,7 +131,9 @@ const QuestionsTable = ({ searchInput }) => {
   };
 
   const handleReply = (id) => {
-    setcurrentQuestion(questions.filter((d) => d.question_id === id)[0]);
+    setcurrentQuestion(
+      questionsFiltered.filter((d) => d.question_id === id)[0]
+    );
     setopen(true);
   };
 
@@ -153,13 +165,17 @@ const QuestionsTable = ({ searchInput }) => {
       title: "Amallar",
       dataIndex: "question_id",
       render: (data) => (
-        <Button
-          onClick={() => handleReply(data)}
-          type='primary'
-          icon={<FormOutlined />}
-        >
-          Javob yozish
-        </Button>
+        <div>
+          {user.role === "manager" && (
+            <Button
+              onClick={() => handleReply(data)}
+              type='primary'
+              icon={<FormOutlined />}
+            >
+              Javob yozish
+            </Button>
+          )}
+        </div>
       ),
       width: "8%",
     },
@@ -180,7 +196,7 @@ const QuestionsTable = ({ searchInput }) => {
         columns={columns}
         bordered
         rowKey={(d) => d.question_id}
-        dataSource={questions}
+        dataSource={questionsFiltered}
         expandable={{
           expandedRowRender: (question) => (
             <div>

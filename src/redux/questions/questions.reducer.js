@@ -15,7 +15,9 @@ const questionsReducer = (state = INITIAL_STATE, action) => {
         case "PATCH":
           return {
             questions: [
-              state.questions.filter((q) => q._id !== action.payload.data._id),
+              ...state.questions.filter(
+                (q) => q._id !== action.payload.data._id
+              ),
               action.payload.data,
             ],
           };

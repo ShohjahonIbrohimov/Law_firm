@@ -10,7 +10,13 @@ import { PlusOutlined } from "@ant-design/icons";
 
 const News = ({ setopen, open }) => {
   const news = useSelector((state) => state.newsReducer.news);
+  const user = useSelector((state) => state.authReducer.user);
   const [defaults, setdefaults] = useState(null);
+
+  const handleAdd = () => {
+    setopen(true);
+    setdefaults(null);
+  };
 
   return (
     <div className={styles.news}>
@@ -19,9 +25,9 @@ const News = ({ setopen, open }) => {
       </Modal>
 
       <Button
-        onClick={() => setopen(true)}
+        onClick={user?.role === "manager" ? handleAdd : ""}
         type='primary'
-        icon={<PlusOutlined />}
+        icon={user?.role === "manager" && <PlusOutlined />}
         size='large'
         style={{ marginBottom: "1rem" }}
       >
