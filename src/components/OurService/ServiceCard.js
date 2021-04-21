@@ -36,8 +36,9 @@ const ServiceCard = ({ data }) => {
   };
 
   return (
-    <div className={styles.service_card}>
+    <Link to={`/service/${data._id}`} className={styles.service_card}>
       <h6 className={styles.title}>{data.title}</h6>
+
       <div className={styles.service_types}>
         {data.category.map((c) => {
           return (
@@ -57,7 +58,7 @@ const ServiceCard = ({ data }) => {
           </Link>
         </div>
       )}
-    </div>
+    </Link>
   );
 };
 

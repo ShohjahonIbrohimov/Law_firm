@@ -23,14 +23,16 @@ const ServiceType = ({ category, saveToDb, handleUpdate, handleDelete }) => {
   return (
     <div className={styles.servicetype}>
       <div className={`${styles.service_accordion}`}>
-        <input
-          disabled={save}
-          className={`${styles.title} ${save ? styles.title_done_edit : ""}`}
-          type='text'
-          value={categoryTitle}
-          onChange={(e) => setcategoryTitle(e.target.value)}
-          style={{ fontSize: "0.8rem", width: "100%" }}
-        />
+        <div onClick={() => setexpand(!expand)} style={{ width: "100%" }}>
+          <input
+            disabled={save}
+            className={`${styles.title} ${save ? styles.title_done_edit : ""}`}
+            type='text'
+            value={categoryTitle}
+            onChange={(e) => setcategoryTitle(e.target.value)}
+            style={{ fontSize: "0.8rem", width: "100%" }}
+          />
+        </div>
         <div className={styles.actions}>
           {user?.role === "manager" && (
             <div
@@ -75,7 +77,7 @@ const ServiceType = ({ category, saveToDb, handleUpdate, handleDelete }) => {
 
       <div
         className={`${styles.docx_iframe} ${expand ? styles.expand : ""} ${
-          saveToDb ? "CK_editor" : ""
+          saveToDb || user?.role !== "manager" ? "CK_editor" : ""
         }`}
       >
         <CKEditor

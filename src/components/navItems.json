@@ -10,5 +10,13 @@
   {
     "url": "/questions",
     "text": "Kelgan savollar"
+  },
+  {
+    "url": "/lawyers",
+    "text": "Advokatlar"
+  },
+  {
+    "url": "/mediators",
+    "text": "Mediatorlar"
   }
 ]
