@@ -1,4 +1,13 @@
-import { News, Home, Service, Aboutus, Questions, Lawyers } from "../pages";
+import {
+  News,
+  Home,
+  Service,
+  Aboutus,
+  Questions,
+  Advocates,
+  Mediators,
+  Lawyers,
+} from "../pages";
 
 export const ROUTES = [
   {
@@ -32,10 +41,22 @@ export const ROUTES = [
     component: () => <Questions />,
   },
   {
+    path: "/advocates",
+    key: "APP_LAWYERS",
+    exact: true,
+    component: () => <Advocates />,
+  },
+  {
     path: "/lawyers",
     key: "APP_LAWYERS",
     exact: true,
     component: () => <Lawyers />,
+  },
+  {
+    path: "/mediators",
+    key: "APP_MEDIATORS",
+    exact: true,
+    component: () => <Mediators />,
   },
 ];
 

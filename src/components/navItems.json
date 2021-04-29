@@ -12,11 +12,15 @@
     "text": "Kelgan savollar"
   },
   {
-    "url": "/lawyers",
+    "url": "/advocates",
     "text": "Advokatlar"
   },
   {
     "url": "/mediators",
     "text": "Mediatorlar"
+  },
+  {
+    "url": "/lawyers",
+    "text": "Huquqshunoslar"
   }
 ]

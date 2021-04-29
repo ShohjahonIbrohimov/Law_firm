@@ -17,6 +17,7 @@ import SocialMedia from "./SocialMedia";
 import Signup from "./Signup";
 import Login from "./Login";
 import Modal from "./Global/GModal";
+import { Link } from "react-router-dom";
 // REDUX
 import { useSelector, useDispatch } from "react-redux";
 import { logout } from "../redux/auth/auth.actions";
@@ -57,7 +58,10 @@ const SiteHeader = () => {
 
         <Space>
           <div className='sitehead_logo'>
-            <img className={styles.logo} src={logo} alt='Logo' />
+            <Link to='/'>
+              {" "}
+              <img className={styles.logo} src={logo} alt='Logo' />
+            </Link>
           </div>
           <div className={styles.search_container}>
             <form className={styles.search_wrapper}>

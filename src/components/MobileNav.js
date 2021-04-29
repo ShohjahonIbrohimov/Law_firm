@@ -12,7 +12,7 @@ const MobileNav = ({ visible, setvisible, navItems }) => {
     <Drawer
       placement='top'
       width='100%'
-      height='50vh'
+      height='60vh'
       onClose={onClose}
       visible={visible}
       footer={<SocialMedia />}
